@@ -5,6 +5,8 @@
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 const Question = use('App/Models/Question')
+const Answer = use('App/Models/Answer')
+const User = use('App/Models/User')
 /**
  * Resourceful controller for interacting with questions
  */
@@ -19,7 +21,14 @@ class QuestionController {
    * @param {View} ctx.view
    */
   async index({ }) {
-    return Question.all();
+    let user_id = 2;
+    return Answer.query()
+      .rightJoin('questions', function () {
+        this
+          .on('answers.question_id', 'questions.id')
+          .on('answers.user_id', user_id)
+      })
+      .fetch();
   }
 
   /**
