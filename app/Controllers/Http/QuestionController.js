@@ -54,6 +54,7 @@ class QuestionController {
       }
     }
 
+    return dados;
   }
 
 }
