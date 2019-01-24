@@ -10,7 +10,7 @@ Instale as depencencias inicialmente.
 npm install
 ```
 
-### .env - Variaveis de ambiente
+## .env - Variaveis de ambiente
 
 Configurações
 
@@ -36,7 +36,7 @@ DB_DATABASE=adonis
 HASH_DRIVER=bcrypt
 ```
 
-#### Migrations
+## Migrations
 
 Execute as migrations para a criação das tabelas no banco.
 
@@ -44,7 +44,7 @@ Execute as migrations para a criação das tabelas no banco.
 adonis migration:run
 ```
 
-##### Servidor
+## Servidor
 
 Para iniciar o servidor em modo de desenvolvimento
 
