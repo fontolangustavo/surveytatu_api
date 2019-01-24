@@ -20,8 +20,8 @@ class QuestionController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index({ }) {
-    let user_id = 1;
+  async index({ auth }) {
+    let user_id = auth.user.id;
     return Answer.query()
       .rightJoin('questions', function () {
         this
@@ -40,17 +40,17 @@ class QuestionController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async update({ request }) {
+  async update({ request, auth }) {
     const { data } = request.post();
 
     let dados = JSON.parse(data);
-    let user_id = 1;
+    let user_id = auth.user.id;
     for (let i = 0; i < dados.length; i++) {
       if (dados[i].value != null) {
         let answer = await Answer.findOrCreate(
           { question_id: dados[i].id, user_id: user_id },
         )
-        
+
         answer.value = dados[i].value;
         await answer.save();
       }

@@ -17,9 +17,10 @@
 const Route = use('Route')
 
 Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
+  return { greeting: 'Survey Tatu API' }
 })
 
+Route.get('/questions', 'QuestionController.index').middleware('auth');
+Route.post('/questions', 'QuestionController.update').middleware('auth');
 
-Route.get('/questions', 'QuestionController.index')
-Route.post('/questions', 'QuestionController.update')
+Route.post('/login', 'UserController.login');
