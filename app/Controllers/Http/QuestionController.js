@@ -32,6 +32,20 @@ class QuestionController {
       .fetch();
   }
 
+  async create({ request }) {
+    const { title } = request.post();
+    try {
+      if (title.length == 0) throw new Error('Failed create new question.');
+
+      let question = await Question.create({ title });
+
+      return question;
+
+    } catch (e) {
+      return { status: false, msg: e.toString() }
+    }
+  }
+
   /**
    * Create/save a new question.
    * POST questions

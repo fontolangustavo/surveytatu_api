@@ -11,7 +11,7 @@ class UserController {
             { email: email, username: email },
         )
 
-        user.last_login = moment().format('YYYY-MM-DD h:mm:ss');;
+        user.last_login = moment().format('YYYY-MM-DD hh:mm:ss');;
         await user.save();
 
         const token = await auth.generate(user);

@@ -22,5 +22,6 @@ Route.get('/', () => {
 
 Route.get('/questions', 'QuestionController.index').middleware('auth');
 Route.post('/questions', 'QuestionController.update').middleware('auth');
+Route.post('/questions/create', 'QuestionController.create');
 
 Route.post('/login', 'UserController.login');

@@ -10,7 +10,7 @@ Instale as depencencias inicialmente.
 npm install
 ```
 
-### .env - Variaveis de ambiente
+## .env - Variaveis de ambiente
 
 Configurações
 
@@ -36,7 +36,7 @@ DB_DATABASE=adonis
 HASH_DRIVER=bcrypt
 ```
 
-#### Migrations
+## Migrations
 
 Execute as migrations para a criação das tabelas no banco.
 
@@ -44,10 +44,44 @@ Execute as migrations para a criação das tabelas no banco.
 adonis migration:run
 ```
 
-##### Servidor
+## Servidor
 
 Para iniciar o servidor em modo de desenvolvimento
 
 ```js
 adonis serve --dev
+```
+
+### End-Points
+
+#### Realizar o login
+```bash
+URL: /login
+Method: POST
+Params: email
+Response: { token, type, refreshToken}
+```
+
+#### Retornar questões do usuario logado
+```bash
+URL: /questions
+Method: GET
+Params: 
+Response: [ { id, value, question_id, user_id, created_at, updated_at,title } ]
+```
+
+#### Atualizar as questões do usuario logado
+```bash
+URL: /questions
+Method: POST
+Params: data
+Response: [ { id, value, question_id, user_id, created_at, updated_at,title } ]
+```
+
+#### Criar novas questões
+```bash
+URL: /questions/create
+Method: POST
+Params: data
+Response: { id, title, created_at, updated_at }
 ```
