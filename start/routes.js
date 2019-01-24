@@ -22,3 +22,4 @@ Route.get('/', () => {
 
 
 Route.get('/questions', 'QuestionController.index')
+Route.post('/questions', 'QuestionController.update')

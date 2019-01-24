@@ -6,6 +6,7 @@ const Model = use('Model')
 class Question extends Model {
     answer() {
         return this.hasOne('App/Models/Answer')
+        .withPivot(['answers.id'])
     }
 }
 
