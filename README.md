@@ -1,28 +1,53 @@
-# Adonis API application
+# Survey Tatu API application
 
-This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
-
-1. Bodyparser
-2. Authentication
-3. CORS
-4. Lucid ORM
-5. Migrations and seeds
+API para fornecer informacoes no funcionament do aplicativo.
 
 ## Setup
 
-Use the adonis command to install the blueprint
+Instale as depencencias inicialmente.
 
 ```bash
-adonis new yardstick --api-only
+npm install
 ```
 
-or manually clone the repo and then run `npm install`.
+### .env - Variaveis de ambiente
 
+Configurações
 
-### Migrations
+```js
+HOST=127.0.0.1
+PORT=3333
+NODE_ENV=development
 
-Run the following command to run startup migrations.
+APP_NAME=AdonisJs
+APP_URL=http://${HOST}:${PORT}
+
+CACHE_VIEWS=false
+
+APP_KEY=
+
+DB_CONNECTION=sqlite
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=
+DB_DATABASE=adonis
+
+HASH_DRIVER=bcrypt
+```
+
+#### Migrations
+
+Execute as migrations para a criação das tabelas no banco.
 
 ```js
 adonis migration:run
+```
+
+##### Servidor
+
+Para iniciar o servidor em modo de desenvolvimento
+
+```js
+adonis serve --dev
 ```
