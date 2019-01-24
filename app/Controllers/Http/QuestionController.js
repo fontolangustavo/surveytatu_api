@@ -28,6 +28,7 @@ class QuestionController {
           .on('answers.question_id', 'questions.id')
           .on('answers.user_id', user_id)
       })
+      .orderBy('questions.id', 'asc')
       .fetch();
   }
 
