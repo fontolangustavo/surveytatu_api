@@ -43,10 +43,11 @@ class QuestionController {
     const { data } = request.post();
 
     let dados = JSON.parse(data);
+    let user_id = 1;
     for (let i = 0; i < dados.length; i++) {
       if (dados[i].value != null) {
         let answer = await Answer.findOrCreate(
-          { question_id: dados[i].question_id, user_id: dados[i].user_id },
+          { question_id: dados[i].id, user_id: user_id },
         )
         
         answer.value = dados[i].value;
